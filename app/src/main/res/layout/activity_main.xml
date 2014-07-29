@@ -22,23 +22,28 @@
         android:gravity="center_vertical">
 
         <info.hoang8f.widget.FButton
+            android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
             fbutton:buttonColor="@color/fbutton_color_green_sea"
             style="@style/color_selection_button" />
 
         <info.hoang8f.widget.FButton
+            android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
+            fbutton:buttonColor="@color/fbutton_color_peter_river"
             style="@style/color_selection_button" />
 
         <info.hoang8f.widget.FButton
+            android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
             fbutton:buttonColor="@color/fbutton_color_alizarin"
             style="@style/color_selection_button" />
 
         <info.hoang8f.widget.FButton
+            android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
             fbutton:buttonColor="@color/fbutton_color_sun_flower"

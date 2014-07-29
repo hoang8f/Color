@@ -3,6 +3,7 @@ package hoang8f.info.adhoccolor;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -12,17 +13,28 @@ import android.view.ViewGroup;
 import android.os.Build;
 
 
+public class MainActivity extends Activity implements View.OnClickListener {
 
-public class MainActivity extends Activity {
+    public static final String KEY_COLOR_CODE = "COLOR_CODE";
+    public static final int COLOR_1 = 1;
+    public static final int COLOR_2 = 2;
+    public static final int COLOR_3 = 3;
+    public static final int COLOR_4 = 4;
+
+    Fragment fragment1;
+    Fragment fragment2;
+    Fragment fragment3;
+    Fragment fragment4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViewById(R.id.button1).setOnClickListener(this);
+        findViewById(R.id.button2).setOnClickListener(this);
+        findViewById(R.id.button3).setOnClickListener(this);
+        findViewById(R.id.button4).setOnClickListener(this);
         if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
         }
     }
 
@@ -46,6 +58,59 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClick(View v) {
+        FragmentTransaction ft;
+        switch (v.getId()) {
+            case R.id.button1:
+                if (fragment1 == null) {
+                    fragment1 = new PlaceholderFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt(KEY_COLOR_CODE, COLOR_1);
+                    fragment1.setArguments(bundle);
+                }
+                ft = getFragmentManager().beginTransaction();
+                ft.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_right, 0, 0);
+                ft.replace(R.id.container, fragment1).commit();
+                break;
+            case R.id.button2:
+                if (fragment2 == null) {
+                    fragment2 = new PlaceholderFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt(KEY_COLOR_CODE, COLOR_2);
+                    fragment2.setArguments(bundle);
+                }
+                ft = getFragmentManager().beginTransaction();
+                ft.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_right, 0, 0);
+                ft.replace(R.id.container, fragment2).commit();
+                break;
+            case R.id.button3:
+                if (fragment3 == null) {
+                    fragment3 = new PlaceholderFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt(KEY_COLOR_CODE, COLOR_3);
+                    fragment3.setArguments(bundle);
+                }
+                ft = getFragmentManager().beginTransaction();
+                ft.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_right, 0, 0);
+                ft.replace(R.id.container, fragment3).commit();
+                break;
+            case R.id.button4:
+                if (fragment4 == null) {
+                    fragment4 = new PlaceholderFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt(KEY_COLOR_CODE, COLOR_4);
+                    fragment4.setArguments(bundle);
+                }
+                ft = getFragmentManager().beginTransaction();
+                ft.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_right, 0, 0);
+                ft.replace(R.id.container, fragment4).commit();
+                break;
+            default:
+                break;
+        }
+    }
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -55,9 +120,28 @@ public class MainActivity extends Activity {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            Bundle bundle = this.getArguments();
+            if (bundle != null) {
+                int color = bundle.getInt(KEY_COLOR_CODE, COLOR_1);
+                switch (color) {
+                    case COLOR_1:
+                        rootView.setBackgroundColor(getResources().getColor(R.color.fbutton_color_green_sea));
+                        break;
+                    case COLOR_2:
+                        rootView.setBackgroundColor(getResources().getColor(R.color.fbutton_color_peter_river));
+                        break;
+                    case COLOR_3:
+                        rootView.setBackgroundColor(getResources().getColor(R.color.fbutton_color_alizarin));
+                        break;
+                    case COLOR_4:
+                        rootView.setBackgroundColor(getResources().getColor(R.color.fbutton_color_sun_flower));
+                        break;
+                    default:
+                        //Do nothing
+                }
+            }
             return rootView;
         }
     }
