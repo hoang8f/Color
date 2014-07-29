@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    tools:ignore="MergeRootFrame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/button_frame" />
+
+    <LinearLayout
+        android:id="@+id/button_frame"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical">
+
+        <info.hoang8f.widget.FButton
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            fbutton:buttonColor="@color/fbutton_color_green_sea"
+            style="@style/color_selection_button" />
+
+        <info.hoang8f.widget.FButton
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            style="@style/color_selection_button" />
+
+        <info.hoang8f.widget.FButton
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            fbutton:buttonColor="@color/fbutton_color_alizarin"
+            style="@style/color_selection_button" />
+
+        <info.hoang8f.widget.FButton
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            fbutton:buttonColor="@color/fbutton_color_sun_flower"
+            style="@style/color_selection_button" />
+
+    </LinearLayout>
+
+</RelativeLayout>
