@@ -16,10 +16,15 @@ import android.os.Build;
 public class MainActivity extends Activity implements View.OnClickListener {
 
     public static final String KEY_COLOR_CODE = "COLOR_CODE";
+
     public static final int COLOR_1 = 1;
     public static final int COLOR_2 = 2;
     public static final int COLOR_3 = 3;
     public static final int COLOR_4 = 4;
+
+    public static final int ANIMATION_POP_CENTER = 1;
+    public static final int ANIMATION_LEFT_TO_RIGHT = 2;
+    public static final int ANIMATION_RIGHT_TO_LEFT = 3;
 
     Fragment fragment1;
     Fragment fragment2;
@@ -107,6 +112,29 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 ft.replace(R.id.container, fragment4).commit();
                 break;
             default:
+                break;
+        }
+    }
+
+    private void showColor(int colorCode, int animationType) {
+
+        switch (colorCode) {
+            case COLOR_1:
+                break;
+            case COLOR_2:
+                break;
+            case COLOR_3:
+                break;
+            case COLOR_4:
+                break;
+        }
+
+        switch (animationType) {
+            case ANIMATION_POP_CENTER:
+                break;
+            case ANIMATION_LEFT_TO_RIGHT:
+                break;
+            case ANIMATION_RIGHT_TO_LEFT:
                 break;
         }
     }
